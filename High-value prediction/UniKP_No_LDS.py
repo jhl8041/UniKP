@@ -5,22 +5,17 @@ from scipy.signal.windows import triang
 import matplotlib.pyplot as plt
 
 import torch
-from build_vocab import WordVocab
-from pretrain_trfm import TrfmSeq2seq
+from executable.build_vocab import WordVocab
+from executable.pretrain_trfm import TrfmSeq2seq
 from utils import split
 import json
 from transformers import T5EncoderModel, T5Tokenizer
 import re
 import gc
-from sklearn import metrics
 from sklearn.ensemble import ExtraTreesRegressor
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import KFold
-from sklearn.metrics import mean_squared_error, mean_absolute_error
-from sklearn.metrics import r2_score
-from sklearn.model_selection import train_test_split
-import random
 import pickle
 import math
 
@@ -53,7 +48,7 @@ def smiles_to_vec(Smiles):
             x_seg.append(b)
         return torch.tensor(x_id), torch.tensor(x_seg)
     trfm = TrfmSeq2seq(len(vocab), 256, len(vocab), 4)
-    trfm.load_state_dict(torch.load('trfm_12_23000.pkl'))
+    trfm.load_state_dict(torch.load('trfm_12_23000.pkl',map_location ='cpu'))
     trfm.eval()
     x_split = [split(sm) for sm in Smiles]
     xid, xseg = get_array(x_split)

@@ -12,8 +12,8 @@ from torch.nn import functional as F
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
-from build_vocab import WordVocab
-from dataset import Seq2seqDataset
+from executable.build_vocab import WordVocab
+from executable.dataset import Seq2seqDataset
 
 PAD = 0
 UNK = 1

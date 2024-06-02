@@ -1,0 +1,6 @@
+.idea
+*.pyc
+/trained_dataset/*
+/prot_t5_xl_uniref50/*
+/input/*
+/result/*

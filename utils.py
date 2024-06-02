@@ -1,8 +1,10 @@
-import torch
 import math
+
+import torch
 import torch.nn as nn
 from rdkit import Chem
 from rdkit import rdBase
+
 rdBase.DisableLog('rdApp.*')
 
 # Split SMILES into words

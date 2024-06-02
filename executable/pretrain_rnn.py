@@ -1,17 +1,18 @@
 import argparse
-import random
-import numpy as np
-from tqdm import tqdm
-from torch.utils.data import DataLoader
-import os
 import math
-import argparse
+import os
+import random
+
+import numpy as np
 import torch
 from torch import nn
 from torch import optim
 from torch.autograd import Variable
-from torch.nn.utils import clip_grad_norm_
 from torch.nn import functional as F
+from torch.nn.utils import clip_grad_norm_
+from torch.utils.data import DataLoader
+from tqdm import tqdm
+
 from build_vocab import WordVocab
 from dataset import Seq2seqDataset
 
